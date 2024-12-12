@@ -19,7 +19,7 @@ if (worker) {
     };
 
     // URL web del App Script de Google
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbyPbPPCfDnYaiXovG69YJo-hJFSVWBgWh9xgENiEfrEmf046NiGgt0wo-zY3FfZ184m/exec';
+    const webAppUrl = 'https://script.google.com/macros/library/d/1Wz50WZfup79JCwq2j1E42aKBptItvtu9docKvNGrfwACZIyqeoAT9UaX/1';
 
     fetch(webAppUrl, {
       method: 'POST',
