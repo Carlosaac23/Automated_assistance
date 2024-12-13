@@ -18,10 +18,7 @@ if (worker) {
       time: new Date().toLocaleString(),
     };
 
-    // URL web del App Script de Google
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbyPbPPCfDnYaiXovG69YJo-hJFSVWBgWh9xgENiEfrEmf046NiGgt0wo-zY3FfZ184m/exec';
-
-    fetch(webAppUrl, {
+    fetch('https://script.google.com/macros/s/AKfycbyPbPPCfDnYaiXovG69YJo-hJFSVWBgWh9xgENiEfrEmf046NiGgt0wo-zY3FfZ184m/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(attendanceData),
@@ -31,6 +28,7 @@ if (worker) {
         return response.json();
       })
       .then(data => {
+        console.log(data);
         alert(data.message);
       })
       .catch(error => {
