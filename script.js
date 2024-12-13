@@ -19,19 +19,22 @@ if (worker) {
     };
 
     // URL web del App Script de Google
-    const webAppUrl = 'https://script.google.com/macros/library/d/1Wz50WZfup79JCwq2j1E42aKBptItvtu9docKvNGrfwACZIyqeoAT9UaX/1';
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbyPbPPCfDnYaiXovG69YJo-hJFSVWBgWh9xgENiEfrEmf046NiGgt0wo-zY3FfZ184m/exec';
 
     fetch(webAppUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(attendanceData),
     })
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+        return response.json();
+      })
       .then(data => {
-        alert(data); // Mostrar respuesta del servidor
+        alert(data.message);
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('Error: ', error);
         alert('Hubo un problema al registrar la asistencia.');
       });
   };
